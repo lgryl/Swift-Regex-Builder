@@ -10,6 +10,13 @@
 		CB42E7DD2555D4ED0001E691 /* RegexBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB42E7D32555D4ED0001E691 /* RegexBuilder.framework */; };
 		CB42E7E22555D4ED0001E691 /* RegexBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB42E7E12555D4ED0001E691 /* RegexBuilderTests.swift */; };
 		CB42E7E42555D4ED0001E691 /* RegexBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = CB42E7D62555D4ED0001E691 /* RegexBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB42E7F22555D5B30001E691 /* RegexBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB42E7F12555D5B30001E691 /* RegexBuilder.swift */; };
+		CB8D6BE3255BB71C004B02D7 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D6BE2255BB71C004B02D7 /* Expression.swift */; };
+		CB8D6BE9255BB76C004B02D7 /* Parenthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D6BE8255BB76C004B02D7 /* Parenthesizer.swift */; };
+		CBEE65022556D4A60013DC1F /* RepeatedExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE65012556D4A60013DC1F /* RepeatedExpression.swift */; };
+		CBEE65062556D53C0013DC1F /* SingleSymbolExpressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE65052556D53C0013DC1F /* SingleSymbolExpressions.swift */; };
+		CBEE650C2556D8B30013DC1F /* SingleSymbolExpressionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE650B2556D8B30013DC1F /* SingleSymbolExpressionsTests.swift */; };
+		CBEE65122556DBFD0013DC1F /* RepeatedExpressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE65112556DBFD0013DC1F /* RepeatedExpressionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +36,13 @@
 		CB42E7DC2555D4ED0001E691 /* RegexBuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RegexBuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB42E7E12555D4ED0001E691 /* RegexBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexBuilderTests.swift; sourceTree = "<group>"; };
 		CB42E7E32555D4ED0001E691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB42E7F12555D5B30001E691 /* RegexBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexBuilder.swift; sourceTree = "<group>"; };
+		CB8D6BE2255BB71C004B02D7 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
+		CB8D6BE8255BB76C004B02D7 /* Parenthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parenthesizer.swift; sourceTree = "<group>"; };
+		CBEE65012556D4A60013DC1F /* RepeatedExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatedExpression.swift; sourceTree = "<group>"; };
+		CBEE65052556D53C0013DC1F /* SingleSymbolExpressions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSymbolExpressions.swift; sourceTree = "<group>"; };
+		CBEE650B2556D8B30013DC1F /* SingleSymbolExpressionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSymbolExpressionsTests.swift; sourceTree = "<group>"; };
+		CBEE65112556DBFD0013DC1F /* RepeatedExpressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatedExpressionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +87,11 @@
 			children = (
 				CB42E7D62555D4ED0001E691 /* RegexBuilder.h */,
 				CB42E7D72555D4ED0001E691 /* Info.plist */,
+				CB42E7F12555D5B30001E691 /* RegexBuilder.swift */,
+				CB8D6BE2255BB71C004B02D7 /* Expression.swift */,
+				CBEE65012556D4A60013DC1F /* RepeatedExpression.swift */,
+				CBEE65052556D53C0013DC1F /* SingleSymbolExpressions.swift */,
+				CB8D6BE8255BB76C004B02D7 /* Parenthesizer.swift */,
 			);
 			path = RegexBuilder;
 			sourceTree = "<group>";
@@ -81,7 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				CB42E7E12555D4ED0001E691 /* RegexBuilderTests.swift */,
+				CBEE650B2556D8B30013DC1F /* SingleSymbolExpressionsTests.swift */,
 				CB42E7E32555D4ED0001E691 /* Info.plist */,
+				CBEE65112556DBFD0013DC1F /* RepeatedExpressionTests.swift */,
 			);
 			path = RegexBuilderTests;
 			sourceTree = "<group>";
@@ -147,6 +168,7 @@
 				TargetAttributes = {
 					CB42E7D22555D4ED0001E691 = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 					};
 					CB42E7DB2555D4ED0001E691 = {
 						CreatedOnToolsVersion = 12.1;
@@ -194,6 +216,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBEE65062556D53C0013DC1F /* SingleSymbolExpressions.swift in Sources */,
+				CB42E7F22555D5B30001E691 /* RegexBuilder.swift in Sources */,
+				CBEE65022556D4A60013DC1F /* RepeatedExpression.swift in Sources */,
+				CB8D6BE3255BB71C004B02D7 /* Expression.swift in Sources */,
+				CB8D6BE9255BB76C004B02D7 /* Parenthesizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +229,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB42E7E22555D4ED0001E691 /* RegexBuilderTests.swift in Sources */,
+				CBEE65122556DBFD0013DC1F /* RepeatedExpressionTests.swift in Sources */,
+				CBEE650C2556D8B30013DC1F /* SingleSymbolExpressionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +370,7 @@
 		CB42E7E82555D4ED0001E691 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 5667E7L429;
@@ -357,6 +387,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.lgryl.RegexBuilder;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -365,6 +396,7 @@
 		CB42E7E92555D4ED0001E691 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 5667E7L429;
@@ -389,6 +421,7 @@
 		CB42E7EB2555D4ED0001E691 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5667E7L429;
 				INFOPLIST_FILE = RegexBuilderTests/Info.plist;
@@ -407,6 +440,7 @@
 		CB42E7EC2555D4ED0001E691 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5667E7L429;
 				INFOPLIST_FILE = RegexBuilderTests/Info.plist;
