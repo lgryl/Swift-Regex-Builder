@@ -4,21 +4,26 @@ import Foundation
 
 internal struct RepeatedExpression: Expression {
     private let expression: Expression
-    private let `repeat`: Repeat
+    let quantifier: Quantifier
 
-    init(expression: Expression, _ repeat: Repeat) {
+    init(expression: Expression, _ quantifier: Quantifier) {
         self.expression = expression
-        self.repeat = `repeat`
+        self.quantifier = quantifier
     }
 
     var value: String {
-        return "\(expression.parenthesizedIfNeeded().value)\(`repeat`.value)"
+        guard expression.type != .empty else { return expression.value }
+        return "\(expression.parenthesizedIfNeeded().value)\(quantifier.value)"
     }
 
-    enum Repeat {
+    var type: ExpressionType {
+        expression.type == .empty ? .empty : .single
+    }
+
+    enum Quantifier {
         case zeroOrOne
-        case oneOrMore
-        case zeroOrMore
+        case oneOrMore(matchingMode: MatchingMode)
+        case zeroOrMore(matchingMode: MatchingMode)
         case exactly(Int)
         case atLeast(Int)
         case inRange(Int, Int)
@@ -28,10 +33,10 @@ internal struct RepeatedExpression: Expression {
 
             case .zeroOrOne:
                 return "?"
-            case .oneOrMore:
-                return "+"
-            case .zeroOrMore:
-                return "*"
+            case .oneOrMore(let matchingMode):
+                return "+\(matchingMode.symbol)"
+            case .zeroOrMore(let matchingMode):
+                return "*\(matchingMode.symbol)"
             case .exactly(let number):
                 return "{\(number)}"
             case .atLeast(let number):
