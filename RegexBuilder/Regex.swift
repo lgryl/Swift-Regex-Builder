@@ -4,8 +4,8 @@ import Foundation
 
 @_functionBuilder
 public struct RegexBuilder {
-    static func buildBlock() -> String { "" }
-    static func buildBlock(_ expressions: Expression...) -> String {
+    public static func buildBlock() -> String { "" }
+    public static func buildBlock(_ expressions: Expression...) -> String {
         expressions.reduce("") { $0 + $1.value }
     }
 }
