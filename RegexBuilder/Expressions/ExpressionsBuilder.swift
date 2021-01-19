@@ -4,8 +4,8 @@ import Foundation
 
 @_functionBuilder
 public struct ExpressionsBuilder {
-    static func buildBlock() -> [Expression] { [] }
-    static func buildBlock(_ expressions: Expression...) -> [Expression] {
+    public static func buildBlock() -> [Expression] { [] }
+    public static func buildBlock(_ expressions: Expression...) -> [Expression] {
         expressions
     }
 }
