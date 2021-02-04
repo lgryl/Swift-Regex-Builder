@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct Alternative: Expression, Quantifiable {
+public struct Alternative: Expression {
     private let expressions: [Expression]
     public var value: String {
         expressions.map { $0.value }.joined(separator: "|")
@@ -21,5 +21,21 @@ public struct Alternative: Expression, Quantifiable {
 
     public init(@ExpressionsBuilder _ content: @escaping () -> [Expression]) {
         expressions = content().filter { $0.type != .empty }
+    }
+}
+
+extension Alternative: Attachable {
+    public func shouldParenthiseWhenPrepended() -> Bool {
+        type == .multiple
+    }
+
+    public func shouldParenthiseWhenAppended() -> Bool {
+        type == .multiple
+    }
+}
+
+extension Alternative: Quantifiable {
+    public func shouldParenthiseWhenRepeated() -> Bool {
+        type == .multiple
     }
 }

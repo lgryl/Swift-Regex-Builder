@@ -3,17 +3,27 @@
 import Foundation
 
 internal struct AppendedExpression: Expression {
-    private let expression: Expression
+    private let expression: Expression & Appendable
     private let content: () -> [Expression]
     let type: ExpressionType = .multiple
 
     var value: String {
         let appended = content().map { $0.value }.joined()
-        return expression.value + "(?=\(appended))"
+        let expressionParenthisedIfNeeded: Expression = expression.shouldParenthiseWhenAppended() ? ParenthesizedExpression(expression) : expression
+        return expressionParenthisedIfNeeded.value + "(?=\(appended))"
     }
 
-    internal init(expression: Expression, content: @escaping () -> [Expression]) {
+    internal init(expression: Expression & Appendable, content: @escaping () -> [Expression]) {
         self.expression = expression
         self.content = content
+    }
+}
+
+extension AppendedExpression: Attachable {
+    func shouldParenthiseWhenPrepended() -> Bool {
+        false
+    }
+    func shouldParenthiseWhenAppended() -> Bool {
+        false
     }
 }

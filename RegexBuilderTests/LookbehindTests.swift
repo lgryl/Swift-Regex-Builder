@@ -36,4 +36,14 @@ class LookbehindTests: XCTestCase {
 
         XCTAssertEqual("(?<=)", expression.value)
     }
+
+    func test_alternativePreceded_shouldBeParenthised() {
+        let alternative = Alternative {
+            Literal("foo")
+            Literal("bar")
+        }.precededBy {
+            Literal("aaa")
+        }
+        XCTAssertEqual("(?<=aaa)(foo|bar)", alternative.value)
+    }
 }

@@ -13,23 +13,14 @@ public enum ExpressionType {
     case multiple
 }
 
-public extension Expression {
-    func parenthesizedIfNeeded() -> Expression {
-        switch type {
-        case .empty, .single:
-            return self
-        case .multiple:
-            return ParenthesizedExpression(self)
-        }
+public extension Expression where Self: Prependable {
+    func precededBy(@ExpressionsBuilder _ content: @escaping () -> [Expression]) -> Expression & Attachable {
+        PrependedExpression(expression: self, content: content)
     }
 }
 
-public extension Expression {
-    func precededBy(@ExpressionsBuilder _ content: @escaping () -> [Expression]) -> Expression {
-        PrependedExpression(expression: self, content: content)
-    }
-
-    func followedBy(@ExpressionsBuilder _ content: @escaping () -> [Expression]) -> Expression {
+public extension Expression where Self: Appendable {
+    func followedBy(@ExpressionsBuilder _ content: @escaping () -> [Expression]) -> Expression & Attachable {
         AppendedExpression(expression: self, content: content)
     }
 }

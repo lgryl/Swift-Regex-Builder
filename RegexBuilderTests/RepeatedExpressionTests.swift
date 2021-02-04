@@ -75,6 +75,17 @@ class RepeatedExpressionTests: XCTestCase {
         let expression = Literal("a")
             .repeated(atLeast: 3)
         XCTAssertEqual("a{3,}", expression.value)
+    }
 
+    func test_singleCharacterLiteralRepeated_isNotParenthised() {
+        let expression = Literal("a")
+            .repeated(5)
+        XCTAssertEqual("a{5}", expression.value)
+    }
+
+    func test_multiCharacterLiteralRepeated_isParenthised() {
+        let expression = Literal("abc")
+            .repeated(5)
+        XCTAssertEqual("(abc){5}", expression.value)
     }
 }

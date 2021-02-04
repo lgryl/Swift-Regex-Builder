@@ -30,6 +30,7 @@
 		CBF6BB1A25614FC40006816C /* LookbehindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6BB1925614FC40006816C /* LookbehindTests.swift */; };
 		CBF6BB1E2561AFBF0006816C /* LookaroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6BB1D2561AFBF0006816C /* LookaroundTests.swift */; };
 		CBF6BB7B25659ABB0006816C /* ExpressionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6BB7A25659ABB0006816C /* ExpressionsBuilder.swift */; };
+		CBFDF48C25B7642C00BBD868 /* Addable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFDF48B25B7642C00BBD868 /* Addable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		CBF6BB1925614FC40006816C /* LookbehindTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookbehindTests.swift; sourceTree = "<group>"; };
 		CBF6BB1D2561AFBF0006816C /* LookaroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookaroundTests.swift; sourceTree = "<group>"; };
 		CBF6BB7A25659ABB0006816C /* ExpressionsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionsBuilder.swift; sourceTree = "<group>"; };
+		CBFDF48B25B7642C00BBD868 /* Addable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				CBF6BB7A25659ABB0006816C /* ExpressionsBuilder.swift */,
 				CBEE65012556D4A60013DC1F /* RepeatedExpression.swift */,
 				CBE0A83125611FAB009C525D /* Quantifiable.swift */,
+				CBFDF48B25B7642C00BBD868 /* Addable.swift */,
 			);
 			path = Expressions;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				CBF6BB7B25659ABB0006816C /* ExpressionsBuilder.swift in Sources */,
 				CBE8B793255FFB1F00002624 /* Alternative.swift in Sources */,
 				CB64A33F255FCB3B00920A32 /* Literal.swift in Sources */,
+				CBFDF48C25B7642C00BBD868 /* Addable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

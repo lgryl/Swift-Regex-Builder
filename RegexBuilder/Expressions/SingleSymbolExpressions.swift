@@ -2,7 +2,7 @@
 
 import Foundation
 
-protocol SingleSymbolExpression: Expression {}
+public protocol SingleSymbolExpression: Expression {}
 
 extension SingleSymbolExpression {
     public var type: ExpressionType {
@@ -38,6 +38,12 @@ public struct AnyNonWordCharacter: SingleSymbolExpression, Quantifiable {
 public struct NewLine: SingleSymbolExpression, Quantifiable {
     public init() {}
     public let value = #"\n"#
+}
+
+public extension SingleSymbolExpression where Self: Quantifiable {
+    func shouldParenthiseWhenRepeated() -> Bool {
+        false
+    }
 }
 
 public struct LineStart: SingleSymbolExpression {

@@ -3,17 +3,18 @@
 import Foundation
 
 internal struct RepeatedExpression: Expression {
-    private let expression: Expression
+    private let expression: Expression & Quantifiable
     let quantifier: Quantifier
 
-    init(expression: Expression, _ quantifier: Quantifier) {
+    init(expression: Expression & Quantifiable, _ quantifier: Quantifier) {
         self.expression = expression
         self.quantifier = quantifier
     }
 
     var value: String {
         guard expression.type != .empty else { return expression.value }
-        return "\(expression.parenthesizedIfNeeded().value)\(quantifier.value)"
+        let expressionParenthisedIfNeeded: Expression = expression.shouldParenthiseWhenRepeated() ? ParenthesizedExpression(expression) : expression
+        return "\(expressionParenthisedIfNeeded.value)\(quantifier.value)"
     }
 
     var type: ExpressionType {

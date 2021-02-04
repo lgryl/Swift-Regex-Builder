@@ -32,4 +32,14 @@ class LookaheadTests: XCTestCase {
             .followedBy {}
         XCTAssertEqual("(?=)", expression.value)
     }
+
+    func test_alternativeFollowed_shouldBeParenthised() {
+        let alternative = Alternative {
+            Literal("foo")
+            Literal("bar")
+        }.followedBy {
+            Literal("aaa")
+        }
+        XCTAssertEqual("(foo|bar)(?=aaa)", alternative.value)
+    }
 }

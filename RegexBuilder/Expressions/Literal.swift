@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct Literal: Expression, Quantifiable {
+public struct Literal: Expression {
     public var type: ExpressionType {
         switch value.count {
         case 0:
@@ -18,5 +18,17 @@ public struct Literal: Expression, Quantifiable {
 
     public init(_ value: String) {
         self.value = NSRegularExpression.escapedPattern(for: value)
+    }
+}
+
+extension Literal: Attachable {
+    public func shouldParenthiseWhenAppended() -> Bool {
+        return false
+    }
+}
+
+extension Literal: Quantifiable {
+    public func shouldParenthiseWhenRepeated() -> Bool {
+        value.count > 1
     }
 }

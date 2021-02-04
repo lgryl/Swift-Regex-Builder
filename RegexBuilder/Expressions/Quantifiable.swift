@@ -2,7 +2,15 @@
 
 import Foundation
 
-public protocol Quantifiable {}
+public protocol Quantifiable {
+    func shouldParenthiseWhenRepeated() -> Bool
+}
+
+public extension Quantifiable where Self: Expression {
+    func shouldParenthiseWhenRepeated() -> Bool {
+        true
+    }
+}
 
 public extension Quantifiable where Self: Expression {
     func repeated(_ times: Int) -> some Expression {
